@@ -56,10 +56,10 @@
 
 ;; Add color scheme
 (require 'color-theme)
-(require 'color-theme-molokai)
+(require 'color-theme-sublime)
 
 ;; (setq color-theme-is-global t)
-(color-theme-molokai)
+(color-theme-sublime)
 
 ;; Fix file loader screen
 ;; (require 'dired-colors)
