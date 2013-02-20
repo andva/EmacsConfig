@@ -1,0 +1,403 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Feb 20 15:46:08 2013
+;; Desktop file format version 206
+;; Emacs version 23.2.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist '((48 . ";;; dired-colors.el --- Adding syntax highlighting to dired buffers\n\n;; Copyright (C) 2006-2011 Davin Pearson\n\n;; Author/Maintainer: Davin Pearson http://www.davinpearson.com\n;; Keywords: Dired Colors Font Lock Syntax Highlighting\n;; Version: 1.0\n\n;;; Limitation of Warranty\n\n;; This file is free software; you can redistribute it and/or modify\n;; it under the terms of the GNU General Public License as published by\n;; the Free Software Foundation; either version 2, or (at your option)\n;; any later version.\n\n;; This file is distributed in the hope that it will be useful,\n;; but WITHOUT ANY WARRANTY; without even the implied warranty of\n;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n;; GNU General Public License for more details.\n\n;; You should have received a copy of the GNU General Public License\n;; along with GNU Emacs; see the file COPYING.  If not, write to\n;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,\n;; Boston, MA 02110-1301, USA.\n\n;;; Install Instructions:\n\n;; See the following URL for the latest info and a tarball:\n\n;; http://davin.50webs.com/research/2010/mopa2e2.html#dired-colors\n\n;; Extract the file in the above-mentioned tarball and put it\n;; somewhere in load-path and load it by putting the following\n;; command in your .emacs file:\n;;\n;; (require 'dired-colors)\n\n;; Note the prefix dc- stands for dired-colors and creates a namespace\n;; for the code.\n\n;;; Known Bugs:\n\n;; None!\n\n(progn\n;;;\n;;; Feel free to add to these lists for fontification of your favorite extensions.\n;;; \n  (defvar dc-files-list--archives     '(\"bz2\" \"gz\" \"jar\" \"rpm\" \"tar\" \"taz\" \"tgz\" \"torrent\" \"z\" \"zip\"))\n  (defvar dc-files-list--graphics     '(\"bmp\" \"dvi\" \"eps\" \"fig\" \"gif\" \"ico\" \"iff\"  \"jpe?g\" \"obj\" \"pbm\" \"pcx\" \"pdf\" \"pgm\"\n                                        \"png\" \"pov\" \"ps\" \"tga\" \"xbm\" \"xcf\"))\n  (defvar dc-files-list--movies       '(\"avi\" \"mov\" \"mpe?g\" \"wmv\"))\n  (defvar dc-files-list--sounds       '(\"au\" \"flac\" \"mid\" \"mp3\" \"wav\" \"wma\"))\n  (defvar dc-files-list--binaries     '(\"a\" \"dat\" \"la\" \"lib\"))\n  (defvar dc-files-list--web          '(\"css\" \"xlsx?\" \"doc\" \"hlp\" \"html?\" \"m4\" \"odt\" \"rtf\" \"tex\" \"wiki\"))\n  (defvar dc-files-list--unimportant  '(\"aux\" \"bak\" \"bbl\" \"blg\" \"class\" \"dvi\" \"elc\" \"log\" \"o\" \"res\" \"tmp\"))\n  (defvar dc-files-list--executable   '(\"bat\" \"dll\" \"exe\" \"lnk\" \"pif\" \"reg\" ))\n  (defvar dc-files-list--sources      '(\"h\" \"hh\" \"c\" \"cc\" \"el\" \"hs\" \"java\" \"js\" \"php\" \"pov\" \"tex\"))\n  (defvar dc-files-list--text         '(\"manifest\" \"txt\"))\n  )\n\n(progn\n;;;\n;;; Feel free to change the colours of the items\n;;; \n  (make-face 'dc-face-dired-executable)\n  (set-face-foreground 'dc-face-dired-executable \"#0c0\")\n  (make-face-bold 'dc-face-dired-executable)\n  (make-face 'dc-face-dired-archives)\n  (set-face-foreground 'dc-face-dired-archives \"#f00\")\n  (make-face-bold 'dc-face-dired-archives)\n  (make-face 'dc-face-dired-binaries)\n  (set-face-foreground 'dc-face-dired-binaries \"#844\")\n  (make-face-bold 'dc-face-dired-binaries)\n  ;;(make-face 'dc-face-dired-fig)\n  ;;(set-face-foreground 'dc-face-dired-fig \"#0ff\")\n  ;;(make-face-bold 'dc-face-dired-fig)\n  (make-face 'dc-face-dired-graphics)\n  (set-face-foreground 'dc-face-dired-graphics \"#f0f\")\n  (make-face-bold 'dc-face-dired-graphics)\n  (make-face 'dc-face-dired-movies)\n  (set-face-background 'dc-face-dired-movies \"#f0f\")\n  (set-face-foreground 'dc-face-dired-movies \"#fff\")\n  (make-face-bold 'dc-face-dired-movies)\n  (make-face 'dc-face-dired-sounds)\n  (set-face-foreground 'dc-face-dired-sounds \"#830\")\n  (make-face-bold 'dc-face-dired-sounds)\n  (copy-face 'default 'dc-face-dired-sources)\n  (make-face-bold 'dc-face-dired-sources)\n  (make-face 'dc-face-dired-web)\n  (set-face-background 'dc-face-dired-web \"#ffff00\")\n  (set-face-foreground 'dc-face-dired-web \"#000\")\n  (make-face-bold 'dc-face-dired-web)\n  (make-face 'dc-face-dired-unimportant)\n  (make-face 'dc-face-dired-text)\n  (set-face-foreground 'dc-face-dired-unimportant \"#aaa\")\n  )\n\n;;(copy-face 'bg:yellow               'dc-face-directory)\n;;(copy-face 'fg:lightgreen           'dc-face-dired-executable)\n;;(copy-face 'fg:lightred             'dc-face-dired-archives)\n;;(copy-face 'fg:brown                'dc-face-dired-binaries)\n;;(copy-face 'fg:lightcyan            'dc-face-dired-fig)\n;;(copy-face 'fg:lightmagenta         'dc-face-dired-graphics)\n;;(copy-face 'bg:lightmagenta         'dc-face-dired-movies)\n;;(copy-face 'fg:brown                'dc-face-dired-sounds)\n;;(copy-face 'fg:yellow               'dc-face-dired-web)\n;;(copy-face 'fg:darkgray             'dc-face-dired-unimportant)\n;;(copy-face 'default                 'dc-face-dired-text)\n\n(copy-face 'dc-face-dired-executable 'eshell-ls-product-face)\n\n(require 'cl)\n\n(setq emacs-dialect--xemacs-p (and (boundp 'xemacsp) (if (string-match \"/usr/share/xemacs-\" (car (last load-path))) t)))\n(setq emacs-dialect--gnuemacs-p (not emacs-dialect--xemacs-p))\n(setq emacs-dialect--dosemacs-p (if (string-match \"msdos\" (emacs-version)) t))\n(setq os-type--msdos-p (if emacs-dialect--dosemacs-p t)) \n(setq os-type--linux-p (if (string-match \"redhat\" emacs-build-system) t))\n\n(defun dc-dired-file-column ()\n  0)\n\n(d-quote\n  (+ 49\n     (max 8 (length user-login-name))\n     (if os-type--msdos-p 4 0)\n     )\n  )\n\n(defun dired-colors--hook ()\n  (interactive)\n\n  (setq dc-files-regexp--archives    (dc-dired--make-choice-regexp dc-files-list--archives))\n  (setq dc-files-regexp--graphics    (dc-dired--make-choice-regexp dc-files-list--graphics))\n  (setq dc-files-regexp--movies      (dc-dired--make-choice-regexp dc-files-list--movies))\n  (setq dc-files-regexp--sounds      (dc-dired--make-choice-regexp dc-files-list--sounds))\n  (setq dc-files-regexp--binaries    (dc-dired--make-choice-regexp dc-files-list--binaries))\n  (setq dc-files-regexp--web         (dc-dired--make-choice-regexp dc-files-list--web))\n  (setq dc-files-regexp--unimportant (dc-dired--make-choice-regexp dc-files-list--unimportant))\n  (setq dc-files-regexp--executable  (dc-dired--make-choice-regexp dc-files-list--executable))\n  (setq dc-files-regexp--sources     (dc-dired--make-choice-regexp dc-files-list--sources))\n  (setq dc-files-regexp--text        (dc-dired--make-choice-regexp dc-files-list--text))\n\n  (when emacs-dialect--gnuemacs-p\n    ;;(d-foo)\n    (setq dired-omit-files (concat \"\\\\(\"\n                                   \"^_.*$\\\\|\"\n                                   \"^\\\\..*$\\\\|\"\n                                   \"^.*~$\\\\|\"\n                                   \"^#.*#\\\\|\"\n                                   \"^.*\\\\.\"\n                                   dc-files-regexp--unimportant\n                                   \"$\\\\)\"))\n    )\n\n  (when emacs-dialect--xemacs-p\n    (setq dired-omit-extensions (mapcar '(lambda (extension) (concat \".\" extension)) dc-files-list--unimportant))\n    (setq dired-omit-regexps '(\"^_.*$\" \"^\\\\..*$\"  \"^.*~$\" \"^#.*#$\"))\n    (setq dired-re-raw-boring \"^$\")\n    )\n\n  (if os-type--linux-p\n      (setq dc-dired--dotstring (make-string 12 ?.))\n    (setq dc-dired--dotstring (make-string (dc-dired-file-column) ?.)))\n\n  (assert (eq major-mode 'dired-mode))\n  \n  (font-lock-add-keywords nil\n                          (list\n                           ;; ONLY WINDOWS:\n                           '(\"^  \\\\([a-zA-Z]:.+:\\\\)\" (1 'dired-directory))\n                           ;; ONLY LINUX:\n                           '(\"^  \\\\(/.+:\\\\)\"         (1 'dired-directory))\n                           ;; BOTH:\n                           ;;'(\"^  \\\\(total.*\\\\)$\" (1 'fg:white))\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--text \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-text t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--executable \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-executable t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--archives \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-archives t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--graphics \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-graphics t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--movies \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-movies t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--sounds \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-sounds t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--binaries \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-binaries t)\n\n                           ;;(list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--fig \"\\\\)[\\n\\r]\")\n                           ;;      1 ''dc-face-dired-fig t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(Makefile\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-sources t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--sources \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-sources t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--web \"\\\\)[\\n\\r]\")\n                                 1 ''dc-face-dired-web t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(.*\\\\.\" dc-files-regexp--unimportant \"\\\\)$\")\n                                 1 ''dc-face-dired-unimportant t)\n\n                           (list (concat \"^\" dc-dired--dotstring \"\\\\(_.*\\\\|\\\\..*\\\\|.*~\\\\|#.*#\\\\)$\")\n                                 1 ''dc-face-dired-unimportant t)\n                           )\n                          'end\n                          )\n  \n  (when (string-match \"sjs-tutorials\" default-directory)\n    (font-lock-add-keywords nil\n                            '(\n                              (\"[ ][^ ]*\\\\.java$\" 0 'dc-face-dired-unimportant t)\n                              (\"[ ]Makefile$\"     0 'dc-face-dired-unimportant t)\n                              (\"[ ]sjs2java.el$\"  0 'dc-face-dired-unimportant t)\n                              ;;(\"root\" 0 'bg:lightgreen t))\n                              )\n                            'end))\n  \n  (font-lock-add-keywords nil\n                          `(\n                            (,(concat \"^\\\\(..d.........\" dc-dired--dotstring \".*$\\\\)\") 1 'dired-directory t)\n                            (\"^\\\\*.*$\" 0 'dired-marked  t)\n                            (\"^D.*$\" 0 'dired-flagged t)\n                            ;;(\"root\" 0 'bg:yellow t)\n                            )\n                          'end)\n\n  ;;(font-lock-mode nil)\n  (font-lock-mode 1)\n  \n  )\n\n(add-hook 'dired-mode-hook 'dired-colors--hook 'APPEND)\n;;(add-hook 'dired-after-readin-hook  'dired-colors--hook)\n;;(add-hook 'dired-before-readin-hook 'dired-colors--hook)\n\n;; dired-mode-hook\n;;(remove-hook 'dired-mode-hook 'd-gfxhook)\n;;(remove-hook 'dired-mode-hook 'dired-colors--hook)\n;;(add-hook 'dired-mode-hook 'dc-gfx-hook 'APPEND)\n  \n;; (dc-dired--make-choice-regexp (setq suffix-list '(\"zip\" \"jar\" \"tar\" \"rpm\" \"bz2\" \"gz\" \"z\" \"tgz\" \"taz\")))\n(defun dc-dired--make-choice-regexp (suffix-list)\n  (let ((answer nil)\n        (n 0))\n    (setq answer \"\\\\(\")\n    (while suffix-list\n        (setq answer (concat answer (if (eq n 0) \"\" \"\\\\|\") (car suffix-list)))\n        (incf n)\n        (setq suffix-list (cdr suffix-list)))\n    (setq answer (concat answer \"\\\\)\"))))\n\n(provide 'dired-colors)")))
+(setq file-name-history '("~/EmacsThemes/main.cpp" "~/" "c:/bin/EmacsConfig/" "c:/bin/main.cpp" "~/" "~/EmacsThemes/dired-colors.ls" "~/_emacs.el" "~/EmacsThemes/" "~/_emacs.el" "~/EmacsThemes/dired-colors.ls" "~/_emacs.el" "~/EmacsThemes/dired-colors.ls" "~/EmacsThemes/" "~/_emacs.el" "f:" "e:" "~/EmacsThemes/" "~/EmacsThemes/color-theme-twilight" "~/EmacsThemes/" "d:" "f:/Programmering/C++/Lab2/Lab2/Lab2/Lab2.cpp" "c:/bin/EmacsConfig/EmacsThemes/color-theme-mnmlst.el" "~/" "c:/bin/" "c:/bin/ErgoEmacs/"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/packages/yasnippet-0.6.1c/dropdown-list.el"
+  "dropdown-list.el"
+  'c++-mode
+  '(abbrev-mode ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  8190
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/ergoemacs/init_load_packages.el"
+  "init_load_packages.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  9181
+  '(10961 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/ergoemacs/init_load_packages.elc"
+  "init_load_packages.elc"
+  'fundamental-mode
+  '(ergoemacs-mode xmsi-mode)
+  2091
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-emacs-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/ergoemacs/init_aliases.el"
+  "init_aliases.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/ergoemacs/init_functions.el"
+  "init_functions.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  2273
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/ergoemacs/init_clean_menus.el"
+  "init_clean_menus.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  14976
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/ergoemacs/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/ErgoEmacs/ergoemacs/init_settings.el"
+  "init_settings.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  2304
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/EmacsConfig/EmacsThemes/main.cpp"
+  "main.cpp<2>"
+  'c++-mode
+  '(abbrev-mode ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  68
+  '(61 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-dos)))
+
+(desktop-create-buffer 206
+  "f:/Programmering/C++/Lab5/Lab5/main.cpp"
+  "main.cpp"
+  'c++-mode
+  '(abbrev-mode ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  2080
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . iso-latin-1-unix)))
+
+(desktop-create-buffer 206
+  "c:/bin/EmacsConfig/_emacs.el"
+  "_emacs.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode linum-mode)
+  698
+  '(692 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "c:/bin/EmacsConfig/EmacsThemes/color-theme-sublime.el"
+  "color-theme-sublime.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  1080
+  '(1120 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  nil
+  "EmacsThemes"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  452
+  '(132 nil)
+  t
+  '("c:/bin/EmacsConfig/EmacsThemes/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "Lab5<2>"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  958
+  '(nil nil)
+  t
+  '("f:/Programmering/C++/Lab5/Lab5/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "Lab5"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  277
+  '(272 nil)
+  t
+  '("f:/Programmering/C++/Lab5/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "C++"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  506
+  '(365 nil)
+  t
+  '("f:/Programmering/C++/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "EmacsConfig"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  115
+  '(nil nil)
+  t
+  '("c:/bin/EmacsConfig/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "bin"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  342
+  '(nil nil)
+  t
+  '("c:/bin/")
+  nil)
+
+(desktop-create-buffer 206
+  "c:/bin/EmacsConfig/EmacsThemes/dired-colors.ls"
+  "dired-colors.ls"
+  'lisp-interaction-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  11606
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-dos)))
+
+(desktop-create-buffer 206
+  nil
+  "color-theme"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  15
+  '(nil nil)
+  t
+  '("c:/bin/EmacsConfig/color-theme/")
+  nil)
+
+(desktop-create-buffer 206
+  "c:/bin/EmacsConfig/.emacs-places"
+  ".emacs-places"
+  'fundamental-mode
+  '(ergoemacs-mode xmsi-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-dos)))
+
+(desktop-create-buffer 206
+  nil
+  "Programmering"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  349
+  '(nil nil)
+  t
+  '("f:/Programmering/")
+  nil)
+
+(desktop-create-buffer 206
+  "c:/bin/EmacsConfig/EmacsThemes/color-theme-mnmlst.el"
+  "color-theme-mnmlst.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  479
+  '(56 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-dos)))
+
+(desktop-create-buffer 206
+  "f:/Programmering/C++/Lab2/Lab2/Lab2/Lab2u1.cpp"
+  "Lab2u1.cpp"
+  'c++-mode
+  '(abbrev-mode ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  1247
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . iso-latin-1-dos)))
+
+(desktop-create-buffer 206
+  nil
+  "Lab2<3>"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  533
+  '(nil nil)
+  t
+  '("f:/Programmering/C++/Lab2/Lab2/Lab2/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "Lab2<2>"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  293
+  '(289 nil)
+  t
+  '("f:/Programmering/C++/Lab2/Lab2/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "Lab2"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  286
+  '(nil nil)
+  t
+  '("f:/Programmering/C++/Lab2/")
+  nil)
+
+(desktop-create-buffer 206
+  "f:/Programmering/C++/Lab1.c"
+  "Lab1.c"
+  'c-mode
+  '(abbrev-mode ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  nil
+  "f:/"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  946
+  '(nil nil)
+  t
+  '("f:/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "$RECYCLE.BIN<2>"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  205
+  '(nil nil)
+  t
+  '("f:/$RECYCLE.BIN/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "$RECYCLE.BIN"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  204
+  '(nil nil)
+  t
+  '("e:/$RECYCLE.BIN/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "e:/"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  124
+  '(nil nil)
+  t
+  '("e:/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "ErgoEmacs"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  242
+  '(nil nil)
+  t
+  '("c:/bin/ErgoEmacs/")
+  nil)
+
+(desktop-create-buffer 206
+  "c:/bin/EmacsConfig/EmacsThemes/color-theme-twilight.el"
+  "color-theme-twilight.el"
+  'emacs-lisp-mode
+  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
+  2601
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  nil
+  "d:/"
+  'dired-mode
+  '(ergoemacs-mode xmsi-mode)
+  26
+  '(nil nil)
+  t
+  '("d:/")
+  nil)
+
