@@ -73,6 +73,13 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1)  ;; keyboard scroll one line at a time
 
+;; Match paranthesis
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(set-face-foreground 'show-paren-match-face "#cfbfff")
+
+;; (set-face-attribute 'show-paren-match-face nil :weight 'bold)   
+
 
 
 

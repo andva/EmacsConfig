@@ -20,7 +20,7 @@
      (font-lock-constant-face ((t (:foreground "#ffffff"))))
      (font-lock-variable-name-face ((t (:foreground "#8ae234"))))
      (minibuffer-prompt ((t (:foreground "#729fcf" :bold t))))
-     (font-lock-warning-face ((t (:foreground "red" :bold t))))          
+     (font-lock-warning-face ((t (:foreground "red" :bold t))))  
 
      )))
 (provide 'color-theme-sublime)
