@@ -2,9 +2,9 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Wed Feb 20 15:46:08 2013
+;; Created Wed Feb 20 16:48:48 2013
 ;; Desktop file format version 206
-;; Emacs version 23.2.1
+;; Emacs version 24.2.1
 
 ;; Global section:
 (setq desktop-missing-file-warning nil)
@@ -33,7 +33,7 @@
   'emacs-lisp-mode
   '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
   9181
-  '(10961 nil)
+  '(10875 nil)
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix)))
@@ -213,17 +213,6 @@
   t
   '("c:/bin/")
   nil)
-
-(desktop-create-buffer 206
-  "c:/bin/EmacsConfig/EmacsThemes/dired-colors.ls"
-  "dired-colors.ls"
-  'lisp-interaction-mode
-  '(ergoemacs-mode xmsi-mode yas/minor-mode auto-complete-mode)
-  11606
-  '(1 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-dos)))
 
 (desktop-create-buffer 206
   nil

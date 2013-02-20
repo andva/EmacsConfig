@@ -1,5 +1,12 @@
 ;; My config file!
 
+(add-to-list 'load-path "~/EmacsThemes/")
+(add-to-list 'load-path "~/color-theme/")
+
+;; ErgoEmacs
+(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "sv") ;
+(load-file "~/KeyBindings/ergoemacs_1.9.3.1/site-lisp/site-start.el")
+
 ;; C++ mode
 (add-hook 'c++-mode-hook
   '(lambda ()
@@ -30,24 +37,15 @@
 ;; (auto-fill-mode -1)
 ;; (flyspell-mode 0) 
 
-;; Fix xmsi trigger key
-(xmsi-mode 0)
-
 ;; Add color scheme
-
-(add-to-list 'load-path "~/EmacsThemes/")
-(add-to-list 'load-path "~/color-theme/")
-
 (require 'color-theme)
-(require 'ergoemacs-mode)
-
 (require 'color-theme-sublime)
-
 ;; (setq color-theme-is-global t)
 (color-theme-sublime)
 
 ;; Set standard indent to 2 rather that 4
 (setq standard-indent 2)
+
 
 
 
