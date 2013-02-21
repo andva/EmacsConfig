@@ -16,6 +16,8 @@
 
 ;; Add h to C++ mode
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.emacs\\'" . ls-mode))
+
 
 ;; Use the GDB visual debugging mode
 (setq gdb-many-windows t)

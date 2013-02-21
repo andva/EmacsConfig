@@ -1,2 +1,8 @@
-.emacs.d/
-.emacs-places
+*
+
+!.emacs
+!.gitignore
+!.gitconfig
+!color-theme/
+!color-theme/themes/*.el
+!KeyBindings/
