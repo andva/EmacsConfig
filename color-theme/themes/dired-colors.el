@@ -121,12 +121,12 @@
 (defun dc-dired-file-column ()
   0)
 
-(d-quote
-  (+ 49
-     (max 8 (length user-login-name))
-     (if os-type--msdos-p 4 0)
-     )
-  )
+;; (d-quote
+;;  (+ 49
+;;     (max 8 (length user-login-name))
+;;     (if os-type--msdos-p 4 0)
+;;     )
+;;  )
 
 (defun dired-colors--hook ()
   (interactive)

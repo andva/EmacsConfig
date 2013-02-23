@@ -13,23 +13,20 @@
 	(xmsi-mode 0))
 
 ;; Google c-standard
-
-;; C++ mode
-;; (add-hook 'c++-mode-hook
-;;  '(lambda ()
-;;     (c-set-style "stroustrup")
-;;     (setq indent-tabs-mode nil)))
-
-;; Add h to C++ mode
-;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (load-file "~/EmacsConfig/google-c-style.el")
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(add-hook 'c++-mode-hook 'google-make-newline-indent)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c++-mode-hook 'google-set-c-style)
+
+;; Add h to C++ mode
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;; Use the GDB visual debugging mode
 (setq gdb-many-windows t)
 
-;; Turn Semantic on
-(semantic-mode 1)
+;; Debug config
+(setq c-echo-syntactic-information-p t)
 
 ;; Run compile when you press F5
 (global-set-key (kbd "<f5>") 'compile)
@@ -39,26 +36,16 @@
 `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
 `((".*" ,temporary-file-directory t)))
-
+ 
 ;; Remove startup screen
 (setq inhibit-startup-screen t)
 
-;; Use 10-pt Consolas as default font
-;; (set-face-attribute 'default nil
-;;                    :family "Consolas" :height 100)
+(when linuxp
+  (set-default-font "Inconsolata-11"))
 
-;;font setups
-;;(defvar vsc-little-font "" "*My lovely little font")
-
-;; (when linuxp
-;;  (setq vsc-little-font "ProggyTinyTT-8"))
-
-(when win32p
-	(set-face-attribute 'default nil
+(when win32p	
+  (set-face-attribute 'default nil
                     :family "Consolas" :height 100))
-
-;; (add-to-list 'default-frame-alist (cons 'font vsc-little-font))
-;; (add-to-list 'initial-frame-alist (cons 'font vsc-little-font))
 
 ;; Column number position
 (setq column-number-mode t)
@@ -69,12 +56,16 @@
 
 ;; Add color scheme
 (require 'color-theme)
-(require 'color-theme-sublime)
+(require 'color-theme-molokai)
 (setq color-theme-is-global t)
-(color-theme-sublime)
+(color-theme-molokai t)
+
+;; Fix file loader screen
+;; (require 'dired-colors)
 
 ;; Set standard indent to 2 rather that 4
-(setq standard-indent 2)
+;; (setq standard-indent 2)
+
 
 ;; Scroll one line at a time
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
@@ -84,12 +75,7 @@
 
 ;; Match paranthesis
 (show-paren-mode 1)
-(setq show-paren-delay 0)
-;;(set-face-foreground 'show-paren-match-face "#cfbfff")
-
-;; (set-face-attribute 'show-paren-match-face nil :weight 'bold)   
-
-
+(setq show-paren-delay 1)
 
 ;; Make available for init-file!
 (provide 'Emacs-Config)
