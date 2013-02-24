@@ -24,6 +24,14 @@
 ;; Add h to C++ mode
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
+;; CMake
+(setq load-path (cons (expand-file-name "~/EmacsConfig/modes") load-path))
+(require 'cmake-mode)
+(setq auto-mode-alist
+      (append '(("CMakeLists\\.txt\\'" . cmake-mode)
+		("\\.cmake\\'" . cmake-mode))
+	      auto-mode-alist))
+
 ;; Use the GDB visual debugging mode
 (setq gdb-many-windows t)
 
