@@ -99,7 +99,7 @@
      (outline-7 ((t (:foreground "#F92672"))))
      (outline-8 ((t (:foreground "#A6E22E"))))
      (secondary-selection ((t (:background "#272822"))))
-     (show-paren-match-face ((t (:foreground "#000000" :background "#FD971F"))))
+     (show-paren-match-face ((t (:foreground "#000000" :background "#6B5233"))))
      (show-paren-mismatch-face ((t (:foreground "#960050" :background "#1E0010"))))
      (widget-inactive-face ((t (:background "#ff0000"))))
      (woman-addition ((t (:foreground "#AE81FF"))))

@@ -1,6 +1,8 @@
 ;; My config file!
-(defconst win32p    (eq system-type 'windows-nt)  "Are we running on a Windows system?")
-(defconst linuxp    (or (eq system-type 'gnu/linux)  (eq system-type 'linux))  "Are we running on Linux?")
+(defconst win32p    (eq system-type 'windows-nt)  
+  "Are we running on a Windows system?")
+(defconst linuxp    (or (eq system-type 'gnu/linux)  (eq system-type 'linux))  
+  "Are we running on Linux?")
 (defconst ergoemacs 0)
 
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
@@ -62,7 +64,7 @@
 (color-theme-molokai)
 
 ;; Fix file loader screen
-;; (require 'dired-colors)
+(require 'dired-colors)
 
 ;; Set standard indent to 2 rather that 4
 ;; (setq standard-indent 2)
