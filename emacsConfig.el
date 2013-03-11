@@ -41,6 +41,18 @@
 ;; Run compile when you press F5
 (global-set-key (kbd "<f5>") 'compile)
 
+;; Bind alt shift 4 to what it should be!
+(global-set-key (kbd "M-¤") 'split-window-right)
+
+;; Bind M-J to start of line
+(global-set-key (kbd "M-J") 'back-to-indentation)
+
+
+(global-set-key (kbd "M-L") 'end-of-line)
+
+
+;; Bind O to end of line
+
 ;; Move temp files to other dir
 (setq backup-directory-alist
 `((".*" . ,temporary-file-directory)))
