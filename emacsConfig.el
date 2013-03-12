@@ -12,7 +12,8 @@
 (when ergoemacs
 	(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "sv") ;
 	(load-file "~/EmacsConfig/KeyBindings/ergoemacs_1.9.3.1/site-lisp/site-start.el")
-	(xmsi-mode 0))
+	(xmsi-mode 0)
+	(add-to-list 'ac-ignores "//"))
 
 ;; Google c-standard
 (load-file "~/EmacsConfig/google-c-style.el")
@@ -44,14 +45,9 @@
 ;; Bind alt shift 4 to what it should be!
 (global-set-key (kbd "M-¤") 'split-window-right)
 
-;; Bind M-J to start of line
 (global-set-key (kbd "M-J") 'back-to-indentation)
-
-
 (global-set-key (kbd "M-L") 'end-of-line)
 
-
-;; Bind O to end of line
 
 ;; Move temp files to other dir
 (setq backup-directory-alist
