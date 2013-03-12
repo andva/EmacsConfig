@@ -5,6 +5,16 @@
   "Are we running on Linux?")
 (defconst ergoemacs 0)
 
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)
+        (next-line)))
+
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
 (add-to-list 'load-path "~/EmacsConfig/color-theme/")
 
@@ -47,6 +57,8 @@
 
 (global-set-key (kbd "M-J") 'back-to-indentation)
 (global-set-key (kbd "M-L") 'end-of-line)
+(global-set-key (kbd "M-,") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "M-;") 'comment-dwim)
 
 
 ;; Move temp files to other dir
