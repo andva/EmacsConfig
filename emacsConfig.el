@@ -57,9 +57,14 @@
 
 (global-set-key (kbd "M-J") 'back-to-indentation)
 (global-set-key (kbd "M-L") 'end-of-line)
+
 (global-set-key (kbd "M-,") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "M-;") 'comment-dwim)
 
+;; Byt till h respektive cpp fil
+(add-hook 'c-mode-common-hook
+  (lambda() 
+    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 
 ;; Move temp files to other dir
 (setq backup-directory-alist
