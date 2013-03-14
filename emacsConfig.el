@@ -5,6 +5,16 @@
   "Are we running on Linux?")
 (defconst ergoemacs 0)
 
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)
+        (next-line)))
+
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
 (add-to-list 'load-path "~/EmacsConfig/color-theme/")
 
@@ -12,7 +22,8 @@
 (when ergoemacs
 	(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "sv") ;
 	(load-file "~/EmacsConfig/KeyBindings/ergoemacs_1.9.3.1/site-lisp/site-start.el")
-	(xmsi-mode 0))
+	(xmsi-mode 0)
+	(add-to-list 'ac-ignores "//"))
 
 ;; Google c-standard
 (load-file "~/EmacsConfig/google-c-style.el")
@@ -44,14 +55,16 @@
 ;; Bind alt shift 4 to what it should be!
 (global-set-key (kbd "M-¤") 'split-window-right)
 
-;; Bind M-J to start of line
 (global-set-key (kbd "M-J") 'back-to-indentation)
-
-
 (global-set-key (kbd "M-L") 'end-of-line)
 
+(global-set-key (kbd "M-,") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "M-;") 'comment-dwim)
 
-;; Bind O to end of line
+;; Byt till h respektive cpp fil
+(add-hook 'c-mode-common-hook
+  (lambda() 
+    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 
 ;; Move temp files to other dir
 (setq backup-directory-alist
