@@ -87,7 +87,7 @@
 (require 'dired-colors)
 
 ;; Set standard indent to 2 rather that 4
-;; (setq standard-indent 2)
+(setq standard-indent 4)
 
 
 ;; Scroll one line at a time
