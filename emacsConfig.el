@@ -64,7 +64,7 @@
 ;; Byt till h respektive cpp fil
 (add-hook 'c-mode-common-hook
   (lambda() 
-    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
+    (local-set-key  (kbd "M-o") 'ff-find-other-file)))
 
 ;; Move temp files to other dir
 (setq backup-directory-alist
