@@ -43,6 +43,11 @@
 		("\\.cmake\\'" . cmake-mode))
 	      auto-mode-alist))
 
+;; GLSL
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
+
 ;; Use the GDB visual debugging mode
 (setq gdb-many-windows t)
 
@@ -81,10 +86,6 @@
 (when win32p	
   (set-face-attribute 'default nil
                     :family "Consolas" :height 100))
-
-;; Column number position
-(setq column-number-mode t)
-(setq global-linum-mode)
 
 ;; Cursor type
 (setq-default cursor-type 'bar) 
