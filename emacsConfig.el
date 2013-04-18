@@ -51,6 +51,9 @@
 ;; Use the GDB visual debugging mode
 (setq gdb-many-windows t)
 
+;; Line numbers
+(global-linum-mode t)
+
 ;; Debug config
 (setq c-echo-syntactic-information-p t)
 
