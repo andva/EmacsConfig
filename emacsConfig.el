@@ -17,6 +17,7 @@
 
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
 (add-to-list 'load-path "~/EmacsConfig/color-theme/")
+(add-to-list 'custom-theme-load-path "~/EmacsConfig/color-theme/themes")
 
 ;; ErgoEmacs
 (when ergoemacs
@@ -95,10 +96,21 @@
 
 ;; Add color scheme
 (require 'color-theme)
+
 (require 'color-theme-molokai)
 
-;; (setq color-theme-is-global t)
-(color-theme-molokai)
+(add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
+(if
+    (equal 0 (string-match "^24" emacs-version))
+    ;; it's emacs24, so use built-in theme 
+    (require 'solarized-light-theme)
+  ;; it's NOT emacs24, so use color-theme
+  (progn
+    (require 'color-theme)
+    (color-theme-initialize)
+    (require 'color-theme-solarized)
+    (color-theme-solarized-light)))
+;; (color-theme-molokai)
 
 ;; Fix file loader screen
 (require 'dired-colors)
