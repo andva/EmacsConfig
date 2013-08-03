@@ -48,6 +48,10 @@
                 (interactive)
                 (TeX-view)
                 [return]))))
+
+(add-hook 'python-mode
+	  (setq compile-command "python "))
+
 ;; Google c-standard
 (load-file "~/EmacsConfig/google-c-style.el")
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
@@ -120,9 +124,6 @@
 (require 'color-theme)
 (require 'color-theme-molokai)
 (color-theme-molokai)
-
-;; Fix file loader screen
-(require 'dired-colors)
 
 ;; Set standard indent to 2 rather that 4
 (setq standard-indent 4)
