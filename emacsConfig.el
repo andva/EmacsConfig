@@ -26,6 +26,28 @@
 	(xmsi-mode 0)
 	(add-to-list 'ac-ignores "//"))
 
+;; Latex
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(add-hook 'reftex-load-hook 'imenu-add-menubar-index)
+(add-hook 'reftex-mode-hook 'imenu-add-menubar-index)
+(global-set-key [down-mouse-3] 'imenu)
+
+(add-hook 'TeX-mode-hook
+          '(lambda ()
+            (define-key TeX-mode-map (kbd "<f6>")
+              (lambda ()
+                (interactive)
+                (save-buffer)
+                (TeX-command-menu "Rubber")
+                (TeX-clean)))
+	    (visual-line-mode t)
+            (define-key TeX-mode-map (kbd "<f7>")
+              (lambda ()
+                (interactive)
+                (TeX-view)
+                [return]))))
 ;; Google c-standard
 (load-file "~/EmacsConfig/google-c-style.el")
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
@@ -59,7 +81,7 @@
 (setq c-echo-syntactic-information-p t)
 
 ;; Run compile when you press F5
-(global-set-key (kbd "<f5>") 'compile)
+(global-set-key (kbd "C-B") 'compile)
 
 ;; Bind alt shift 4 to what it should be!
 (global-set-key (kbd "M-¤") 'split-window-right)
@@ -67,7 +89,7 @@
 (global-set-key (kbd "M-J") 'back-to-indentation)
 (global-set-key (kbd "M-L") 'end-of-line)
 
-(global-set-key (kbd "M-,") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "M-;") 'comment-dwim)
 
 ;; Byt till h respektive cpp fil
@@ -94,30 +116,16 @@
 ;; Cursor type
 (setq-default cursor-type 'bar) 
 
-;; Add color scheme
-(require 'color-theme)
-
-(require 'color-theme-molokai)
-
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
-(if
-    (equal 0 (string-match "^24" emacs-version))
-    ;; it's emacs24, so use built-in theme 
-    (require 'solarized-light-theme)
-  ;; it's NOT emacs24, so use color-theme
-  (progn
-    (require 'color-theme)
-    (color-theme-initialize)
-    (require 'color-theme-solarized)
-    (color-theme-solarized-light)))
-;; (color-theme-molokai)
+(require 'color-theme)
+(require 'color-theme-molokai)
+(color-theme-molokai)
 
 ;; Fix file loader screen
 (require 'dired-colors)
 
 ;; Set standard indent to 2 rather that 4
 (setq standard-indent 4)
-
 
 ;; Scroll one line at a time
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
