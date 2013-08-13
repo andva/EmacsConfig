@@ -57,13 +57,13 @@ Suitable for inclusion in `c-offsets-alist'."
     ;; structure to indent past, it has to be at the beginning of the line.
     (if (looking-at "\\(\\(if\\|for\\|while\\)\\s *(\\)")
         (goto-char (match-end 1)))
-    (vector (+ 4 (current-column)))))
+    (vector (+ t (current-column)))))
         
 (defconst google-c-style
   `((c-recognize-knr-p . nil)
-    (c-enable-xemacs-performance-kludge-p . t) ; speed up indentation in XEmacs
+    (c-enable-xemacs-performance-kludge-p . 4) ; speed up indentation in XEmacs
     (c-basic-offset . 4)
-    (indent-tabs-mode . nil)
+    (indent-tabs-mode . t)
     (c-comment-only-line-offset . 0)
     (c-hanging-braces-alist . ((defun-open after)
                                (defun-close before after)
@@ -125,7 +125,6 @@ Suitable for inclusion in `c-offsets-alist'."
   "Set the current buffer's c-style to Google C/C++ Programming
   Style. Meant to be added to `c-mode-common-hook'."
   (interactive)
-  (make-local-variable 'c-tab-always-indent)
   (setq c-tab-always-indent t)
   (c-add-style "Google" google-c-style t))
 

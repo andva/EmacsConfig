@@ -108,8 +108,8 @@
 (autoload 'xub-mode "xub-mode" "Load Unicode browsing mode." t)
 
 ;;; xmsi-mode 〔xmsi-math-symbols-input.el〕 for inputting math (Unicode) symbols.
-(autoload 'xmsi-mode "xmsi-math-symbols-input" "Load xmsi minor mode for inputting math (Unicode) symbols." t)
-(xmsi-mode 1)
+;; (autoload 'xmsi-mode "xmsi-math-symbols-input" "Load xmsi minor mode for inputting math (Unicode) symbols." t)
+;; (xmsi-mode 1)
 
 ;; Hunspell only for Windows until we fix http://code.google.com/p/ergoemacs/issues/detail?id=51
 (when (and (string-equal system-type "windows-nt")
@@ -121,44 +121,6 @@
     (rw-hunspell-setup)
     )
   )
-
-;; ;; Hunspell
-;; (when (string-equal system-type "windows-nt")
-;;   (when (or (file-exists-p "../hunspell")
-;;             (file-exists-p "C:\\Program Files (x86)\\ErgoEmacs\\hunspell")
-;;             )
-;;     (progn
-;;       (add-to-list 'load-path
-;;        (concat (file-name-directory (or load-file-name buffer-file-name)) "../packages/rw-hunspell/") )
-;;       (require 'rw-hunspell)
-;;       (rw-hunspell-setup)
-;;       ) ) ) 
-
-;; ;; ;; Hunspell. TODO: See http://code.google.com/p/ergoemacs/issues/detail?id=51
-;; ;; (when (or (executable-find "hunspell") (executable-find "aspell") (executable-find "ispell"))
-;; ;; (progn
-;; ;;       (add-to-list 'load-path
-;; ;;        (concat (file-name-directory (or load-file-name buffer-file-name)) "../packages/rw-hunspell/") )
-;; ;;       (require 'rw-hunspell)
-;; ;;       (rw-hunspell-setup)
-;; ;;       )
-;; ;; )
-
-;; ;; speck-mode. To use, call speck-mode.
-;; ;; TODO: http://code.google.com/p/ergoemacs/issues/detail?id=56
-;; ;; http://code.google.com/p/ergoemacs/issues/detail?id=74
-;; (autoload 'speck-mode "speck" "Background spell checking mode, alternative to flyspell-mode." t)
-;; (setq speck-engine (quote Hunspell))
-;; (setq speck-hunspell-language-options
-;;       (quote (("da" utf-8 nil t nil)
-;;               ("de" iso-8859-1 nil t nil)
-;;               ("en" utf-8 nil nil nil) 
-;;               ("fr" iso-8859-1 nil nil nil)
-;;               ("it" iso-8859-1 nil nil nil)
-;;               ("ru" koi8-r nil nil nil))))
-;; (setq speck-hunspell-program (concat (file-name-directory (or load-file-name buffer-file-name)) "../hunspell/hunspell.exe"))
-;; (setq speck-hunspell-library-directory (concat (file-name-directory (or load-file-name buffer-file-name)) "../hunspell/"))
-;; (setq speck-hunspell-default-dictionary-name "en_US")
 
 ;;; yasnippet template system
 (add-to-list 'load-path
@@ -172,19 +134,6 @@
 (add-to-list 'auto-mode-alist '("\\.yasnippet\\'" . snippet-mode))
 
 
-;; ;; auto-complete v1.3 (a enhanced word completion)
-;; (add-to-list 'load-path
-;;  (concat (file-name-directory (or load-file-name buffer-file-name))
-;;                      "../packages/auto-complete-1.3/" ) )
-;; (require 'auto-complete-config)
-;; (add-to-list 'ac-dictionary-directories
-;;  (concat (file-name-directory (or load-file-name buffer-file-name))
-;;                      "../packages/auto-complete-1.3/ac-dict/" ))
-;; (ac-config-default)
-;; (auto-complete-mode 1)
-;; (defun ac-css-mode-setup()) ; this is a workaround a crash http://github.com/m2ym/auto-complete/issues#issue/27 http://github.com/m2ym/auto-complete/issues#issue/31
-
-
 ;; auto-complete v1.3.1 (a enhanced word completion)
 (add-to-list 'load-path
  (concat (file-name-directory (or load-file-name buffer-file-name))
@@ -193,8 +142,8 @@
 (add-to-list 'ac-dictionary-directories
  (concat (file-name-directory (or load-file-name buffer-file-name))
                      "../packages/auto-complete-1.3.1/ac-dict/" ))
-(ac-config-default)
-(auto-complete-mode 1)
+;; (ac-config-default)
+;; (auto-complete-mode 1)
 
 
 ;;; enhanced bookmark, bookmarkplus
