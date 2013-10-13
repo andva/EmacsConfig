@@ -3,7 +3,7 @@
   "Are we running on a Windows system?")
 (defconst linuxp    (or (eq system-type 'gnu/linux)  (eq system-type 'linux))  
   "Are we running on Linux?")
-(defconst ergoemacs 0)
+
 
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
@@ -18,13 +18,6 @@
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
 (add-to-list 'load-path "~/EmacsConfig/color-theme/")
 (add-to-list 'custom-theme-load-path "~/EmacsConfig/color-theme/themes")
-
-;; ErgoEmacs
-(when ergoemacs
-	(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "sv") ;
-	(load-file "~/EmacsConfig/KeyBindings/ergoemacs_1.9.3.1/site-lisp/site-start.el")
-	(xmsi-mode 0)
-	(add-to-list 'ac-ignores "//"))
 
 ;; Latex
 (setq TeX-auto-save t)
@@ -110,15 +103,12 @@
 ;; Remove startup screen
 (setq inhibit-startup-screen t)
 
-(when linuxp
-  (set-default-font "Inconsolata-11"))
+;; Specify the default font as =Source Code Pro=, which should already
+;;    be [[http://blogs.adobe.com/typblography/2012/09/source-code-pro.html][downloaded]] and installed.
 
-(when win32p	
-  (set-face-attribute 'default nil
-                    :family "Consolas" :height 100))
-
-;; Cursor type
-(setq-default cursor-type 'bar) 
+(set-frame-font "Source Code Pro")
+(set-face-attribute 'default nil :font "Source Code Pro" :height 80)
+(set-face-font 'default "Source Code Pro")
 
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
 (require 'color-theme)
@@ -137,9 +127,4 @@
 ;; Match paranthesis
 (show-paren-mode 1)
 (setq show-paren-delay 1)
-
-;; Make available for init-file!
-(provide 'Emacs-Config)
-
-
 
