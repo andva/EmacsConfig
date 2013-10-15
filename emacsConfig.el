@@ -4,7 +4,6 @@
 (defconst linuxp    (or (eq system-type 'gnu/linux)  (eq system-type 'linux))  
   "Are we running on Linux?")
 
-
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
     (interactive)
@@ -14,10 +13,6 @@
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)
         (next-line)))
-
-(add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
-(add-to-list 'load-path "~/EmacsConfig/color-theme/")
-(add-to-list 'custom-theme-load-path "~/EmacsConfig/color-theme/themes")
 
 ;; Latex
 (setq TeX-auto-save t)
@@ -45,13 +40,21 @@
 (add-hook 'python-mode
 	  (setq compile-command "python "))
 
-;; Google c-standard
-(load-file "~/EmacsConfig/google-c-style.el")
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
-(add-hook 'c++-mode-hook 'google-make-newline-indent)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c++-mode-hook 'google-set-c-style)
-
+(defun my-c-mode-common-hook ()
+  ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
+  (c-set-offset 'substatement-open 0)
+  ;; other customizations can go here
+  (hs-minor-mode t)
+  (setq c++-tab-always-indent t)
+  (setq c-basic-offset 4)                  ;; Default is 2
+  (setq c-indent-level 4)                  ;; Default is 2
+  (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+  (setq tab-width 4)
+  (setq indent-tabs-mode t)  ; use spaces only if nil
+  )
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(setq-default tab-width 4)
+(setq standard-indent 4)
 ;; Add h to C++ mode
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
@@ -79,20 +82,14 @@
 
 ;; Run compile when you press F5
 (global-set-key (kbd "C-B") 'compile)
-
-;; Bind alt shift 4 to what it should be!
-(global-set-key (kbd "M-¤") 'split-window-right)
-
-(global-set-key (kbd "M-J") 'back-to-indentation)
-(global-set-key (kbd "M-L") 'end-of-line)
-
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "M-;") 'comment-dwim)
 
-;; Byt till h respektive cpp fil
-(add-hook 'c-mode-common-hook
-  (lambda() 
-    (local-set-key  (kbd "M-o") 'ff-find-other-file)))
+(setq c-backspace-function 'backward-delete-char)
+;; ;; Byt till h respektive cpp fil
+;; (add-hook 'c-mode-common-hook
+;;   (lambda() 
+;;     (local-set-key  (kbd "M-o") 'ff-find-other-file)))
 
 ;; Move temp files to other dir
 (setq backup-directory-alist
@@ -110,13 +107,11 @@
 (set-face-attribute 'default nil :font "Source Code Pro" :height 80)
 (set-face-font 'default "Source Code Pro")
 
+(add-to-list 'load-path "~/EmacsConfig/color-theme/")
 (add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
 (require 'color-theme)
 (require 'color-theme-molokai)
 (color-theme-molokai)
-
-;; Set standard indent to 2 rather that 4
-(setq standard-indent 4)
 
 ;; Scroll one line at a time
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
