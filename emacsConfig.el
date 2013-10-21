@@ -81,7 +81,7 @@
 (setq c-echo-syntactic-information-p t)
 
 ;; Run compile when you press F5
-(global-set-key (kbd "C-B") 'compile)
+(global-set-key (kbd "C-`") 'compile)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "M-;") 'comment-dwim)
 
