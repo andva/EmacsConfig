@@ -87,7 +87,7 @@
       (indent-according-to-mode)))
 
 ;; Run compile when you press F5
-(global-set-key (kbd "C-B") 'compile)
+(global-set-key (kbd "C-`") 'compile)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "M-;") 'comment-dwim)
 (define-key global-map (kbd "RET") 'newline-and-indent)
