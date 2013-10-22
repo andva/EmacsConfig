@@ -80,17 +80,43 @@
 ;; Debug config
 (setq c-echo-syntactic-information-p t)
 
+(defun complete-or-indent ()
+    (interactive)
+    (if (company-manual-begin)
+        (company-complete-common)
+      (indent-according-to-mode)))
+
 ;; Run compile when you press F5
 (global-set-key (kbd "C-B") 'compile)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "M-;") 'comment-dwim)
-
+(define-key global-map (kbd "RET") 'newline-and-indent)
 (setq c-backspace-function 'backward-delete-char)
-;; ;; Byt till h respektive cpp fil
-;; (add-hook 'c-mode-common-hook
-;;   (lambda() 
-;;     (local-set-key  (kbd "M-o") 'ff-find-other-file)))
+(add-hook 'company-mode
+          (lambda()
+            (global-set-key (kbd "TAB") 'complete-or-indent)))
 
+
+(setq load-path (cons (expand-file-name "~/EmacsConfig/modes") load-path))
+(add-to-list 'load-path "~/EmacsConfig/modes/company-mode")
+(autoload 'company-mode "company" nil t)
+(setq company-backends '(company-elisp 
+                         company-ropemacs
+                         company-gtags
+                         company-dabbrev-code
+                         company-keywords
+                         company-files 
+                         company-dabbrev))
+
+(company-mode t)
+
+(defun complete-or-indent ()
+    (interactive)
+    (if (company-manual-begin)
+        (company-complete-common)
+      (indent-according-to-mode)))
+
+(setq company-idle-delay t)
 ;; Move temp files to other dir
 (setq backup-directory-alist
 `((".*" . ,temporary-file-directory)))
