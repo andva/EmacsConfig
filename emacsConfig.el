@@ -86,6 +86,10 @@
 (add-hook 'python-mode
 		  (setq compile-command "python "))
 
+;;;; PRMan
+(autoload 'rib-mode "rib-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rib\\'" . rib-mode))
+
 ;;;; TeX
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
