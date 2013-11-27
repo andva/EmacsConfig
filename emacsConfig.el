@@ -33,11 +33,12 @@
 (setq c-backspace-function 'backward-delete-char)
 
 ;;;; Company mode
-(add-to-list 'load-path "~/EmacsConfig/modes/company-mode")
-(autoload 'company-mode "company" nil t)
+(add-to-list 'load-path "modes/company-mode")
+(when (require 'company-mode nil 'noerror)
+	(autoload 'company-mode "company" nil t)
 
-(defun complete-or-indent ()
-  (interactive)
+	(defun complete-or-indent ()
+  		(interactive)
   (if (company-manual-begin)
 	  (company-complete-common)
 	(indent-according-to-mode)))
@@ -58,12 +59,13 @@
 (setq company-idle-delay t)
 
 (company-mode 1)
+	)
 
 ;;;; Helm mode
 ;; Responsible for autocomplete in M-X, helm-imenu is nice as wel.
-(add-to-list 'load-path "~/EmacsConfig/modes/helm")
-(require 'helm-config)
-(helm-mode t)
+;; (add-to-list 'load-path "modes/helm")
+;; (when (require 'helm-config nil 'noerror)
+	;; (helm-mode t))
 
 ;;;; Cpp and C
 ;; Add h files to cpp mode
@@ -121,7 +123,7 @@
 (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
 
 ;;;; CMake
-(setq load-path (cons (expand-file-name "~/EmacsConfig/modes") load-path))
+(setq load-path (cons (expand-file-name "modes") load-path))
 (require 'cmake-mode)
 (setq auto-mode-alist
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
@@ -162,8 +164,8 @@
 
 
 ;;;; Color theme
-(add-to-list 'load-path "~/EmacsConfig/color-theme/")
-(add-to-list 'load-path "~/EmacsConfig/color-theme/themes")
+(add-to-list 'load-path "color-theme/")
+(add-to-list 'load-path "color-theme/themes")
 (require 'color-theme)
 (require 'color-theme-molokai)
 (color-theme-molokai)
