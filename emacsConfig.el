@@ -89,6 +89,8 @@
 ;;;; PRMan
 (autoload 'rib-mode "rib-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rib\\'" . rib-mode))
+(autoload 'rsl-mode "rsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.sl\\'" . rsl-mode))
 
 ;;;; TeX
 (setq TeX-auto-save t)
