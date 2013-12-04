@@ -1,6 +1,8 @@
 ;; My config file!
+(setq base-path "~/configs/EmacsConfig/")
 
-(setq load-path (cons (expand-file-name "~/EmacsConfig/modes") load-path))
+(setq load-path (cons (expand-file-name (concat base-path "modes")) load-path))
+
 ;; Line numbers
 (global-linum-mode t)
 ;; Temp, startup
@@ -33,7 +35,7 @@
 (setq c-backspace-function 'backward-delete-char)
 
 ;;;; Company mode
-(add-to-list 'load-path "modes/company-mode")
+(add-to-list 'load-path (concat base-path (concat base-path "modes/company-mode")))
 (when (require 'company-mode nil 'noerror)
 	(autoload 'company-mode "company" nil t)
 
@@ -164,8 +166,8 @@
 
 
 ;;;; Color theme
-(add-to-list 'load-path "color-theme/")
-(add-to-list 'load-path "color-theme/themes")
+(add-to-list 'load-path (concat base-path "color-theme/"))
+(add-to-list 'load-path (concat base-path "color-theme/themes"))
 (require 'color-theme)
 (require 'color-theme-molokai)
 (color-theme-molokai)

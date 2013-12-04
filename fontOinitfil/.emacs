@@ -1,3 +1,3 @@
-(load-file "~/EmacsConfig/emacsConfig.el")
+(load-file "~/configs/EmacsConfig/emacsConfig.el")
 
 (require 'Emacs-Config)
