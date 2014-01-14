@@ -90,6 +90,13 @@
 (add-hook 'python-mode
 		  (setq compile-command "python "))
 
+;;;; Gradle
+(autoload 'gradle-mode "gradle-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.gradle\\'" . gradle-mode))
+
+;;;; XML
+(add-hook 'xml-mode-hook 'my-c-mode-common-hook)
+
 ;;;; PRMan
 (autoload 'rib-mode "rib-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rib\\'" . rib-mode))
