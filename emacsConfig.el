@@ -130,7 +130,9 @@
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
-
+(add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.tesc\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.tese\\'" . glsl-mode))
 ;;;; CMake
 (setq load-path (cons (expand-file-name "modes") load-path))
 (require 'cmake-mode)
