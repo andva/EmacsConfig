@@ -21,27 +21,30 @@
     dash
     flx-ido
     flycheck
-    go-mode
-    haskell-mode
     idle-highlight-mode
     ido-ubiquitous
     iy-go-to-char
     magit
     multiple-cursors
-    mvn
-    nyan-mode
+   
     paredit
     password-store
     projectile
-    puppet-mode
+    
     rainbow-delimiters
     rainbow-mode
-    rust-mode
+    nyan-mode
+    
     s
     smex
     smart-mode-line
     switch-window
     undo-tree
+
+    ; Programming
+    rust-mode
+    go-mode
+    haskell-mode
 
     ; Clojure
     ac-cider-compliment
@@ -54,6 +57,8 @@
 
     ; Graphics
     glsl-mode
+    hlsl-mode
+    rib-mode
 
     ; Version control
     psvn
