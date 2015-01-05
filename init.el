@@ -15,10 +15,17 @@
 (package-initialize)
 
 (defvar my-pkgs
-  '(; Basic functionality
+  '(
+; Basic functionality
+    ; Improved jumping in code
     ace-jump-mode
+    ; 
     ack-and-a-half
+
+    ; 
     browse-kill-ring
+
+    ; Confluence editing
     confluence
     dash
     flx-ido
@@ -28,7 +35,6 @@
     iy-go-to-char
     magit
     multiple-cursors
-   
     paredit
     password-store
     projectile
@@ -120,10 +126,6 @@
 ;; Actual servers and such are loaded from irc.el
 (load-file-if-exists (concat initpath "init-irc.el"))
 
-;; HLSL mode
-;; (load-file-if-exists (concat initpath "modes/hlsl-mode.el"))
-;; 
-
 ;; Load magnars' string manipulation library
 (require 's)
 
@@ -133,5 +135,5 @@
 (random t)
 
 ;; SML should respect theme colours
-; (setq sml/theme 'black)
+;;(setq sml/theme 'black)
 (sml/setup)
