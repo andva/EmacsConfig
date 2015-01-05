@@ -57,8 +57,6 @@
 
     ; Graphics
     glsl-mode
-    hlsl-mode
-    rib-mode
 
     ; Version control
     psvn
@@ -100,6 +98,10 @@
 (custom-download-script
  "https://gist.github.com/gongo/1789605/raw/526e3f21dc7d6cef20951cf0ce5d51b90b7821ff/json-reformat.el"
  "json-reformat.el")
+
+;;(custom-download-script
+;; "http://iweb.dl.sourceforge.net/project/rib-mode/rib-mode/rib-mode-1/rib-mode.el"
+;; "rib-mode.el")
 
 (custom-download-script
  "http://accad.osu.edu/~smay/RManNotes/rsl-mode.el"
