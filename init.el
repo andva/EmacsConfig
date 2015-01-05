@@ -1,6 +1,8 @@
 ;; Configure package manager
 (require 'package)
 
+(defvar initpath "~/EmacsConfig/")
+
 ;; Add Marmalade repo
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
@@ -81,7 +83,7 @@
 (defvar home-dir)
 (setq home-dir (expand-file-name "~"))
 
-(add-to-list 'load-path (concat user-emacs-directory "init"))
+(add-to-list 'load-path (concat initpath "init"))
 
 (mapc 'require '(functions
                  settings
@@ -90,32 +92,36 @@
                  bindings
                  eshell-setup))
 
-(add-to-list 'load-path (concat user-emacs-directory "scripts"))
+(add-to-list 'load-path (concat initpath "scripts"))
 
-(setq custom-file (concat user-emacs-directory "init/custom.el"))
+(setq custom-file (concat initpath "init/custom.el"))
 (load custom-file)
 
 (custom-download-script
  "https://gist.github.com/gongo/1789605/raw/526e3f21dc7d6cef20951cf0ce5d51b90b7821ff/json-reformat.el"
  "json-reformat.el")
 
-;;(custom-download-script
-;; "http://iweb.dl.sourceforge.net/project/rib-mode/rib-mode/rib-mode-1/rib-mode.el"
-;; "rib-mode.el")
+(custom-download-script
+ "http://iweb.dl.sourceforge.net/project/rib-mode/rib-mode/rib-mode-1/rib-mode.el"
+ "rib-mode.el")
 
 (custom-download-script
  "http://accad.osu.edu/~smay/RManNotes/rsl-mode.el"
  "rsl-mode.el")
 
+(custom-download-script
+ "http://sourceforge.net/p/hlslmode/code/HEAD/tree/trunk/package/hlsl-mode.el?format=raw"
+ "hlsl-mode.el")
+
 ;; A file with machine specific settings.
-(load-file-if-exists "~/.emacs.d/init-local.el")
+(load-file-if-exists (concat initpath "init-local.el"))
 
 ;; IRC configuration
 ;; Actual servers and such are loaded from irc.el
-(load-file-if-exists "~/.emacs.d/init-irc.el")
+(load-file-if-exists (concat initpath "init-irc.el"))
 
 ;; HLSL mode
-(load-file-if-exists "~/.emacs.d/modes/hlsl-mode.el")
+;; (load-file-if-exists (concat initpath "modes/hlsl-mode.el"))
 ;; 
 
 ;; Load magnars' string manipulation library
