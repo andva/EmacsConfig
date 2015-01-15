@@ -116,11 +116,14 @@
 (load-theme 'gruber-darker t)
 
 (global-hl-line-mode -1)
-
-(setq default-frame-alist '((font-backend . "xft")
+(when (member "Consolas" (font-family-list))
+  ((setq default-frame-alist '((font-backend . "xft")
                             (font . "Consolas-10:weight=normal")))
+   (set-default-font "Consolas 10")
+   )
+  )
 
-(set-default-font "Consolas 10")
+
 
 ;; Don't make the nyan cat too long ... I have other stuff in the mode
 ;; bar as well!
@@ -149,6 +152,13 @@
   '(progn
      (set-face-foreground 'magit-diff-add "green4")
      (set-face-foreground 'magit-diff-del "red3")))
+
+;; Preset width nlinum
+(add-hook 'nlinum-mode-hook
+          (lambda ()
+            (setq nlinum--width
+              (length (number-to-string
+                       (count-lines (point-min) (point-max)))))))
 
 ;; ## Mac specific settings ##
 

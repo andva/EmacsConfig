@@ -87,6 +87,9 @@
  'auto-mode-alist
  '("\\.m$" . octave-mode))
 
+;; Enable NLinum
+(nlinum-mode t)
+
 ;; Default .h files to c++-mode instead of c. I never write c.
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 

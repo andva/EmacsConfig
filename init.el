@@ -19,30 +19,57 @@
 ; Basic functionality
     ; Improved jumping in code
     ace-jump-mode
+    
     ; 
     ack-and-a-half
 
     ; 
     browse-kill-ring
 
-    ; Confluence editing
-    confluence
-    dash
-    flx-ido
-    flycheck
-    idle-highlight-mode
-    ido-ubiquitous
-    iy-go-to-char
-    magit
-    multiple-cursors
-    paredit
-    password-store
-    projectile
+    ; Line numbers
+    nlinum
     
+    ;
+    dash
+
+    ;
+    flx-ido
+
+    ;
+    flycheck
+
+    ;
+    idle-highlight-mode
+
+    ;
+    ido-ubiquitous
+
+    ;
+    iy-go-to-char
+
+    ; Git extension
+    magit
+
+
+    multiple-cursors
+
+
+    paredit
+
+
+    password-store
+
+
+    projectile
+
+    ; Shows strings as the color they represent
     rainbow-delimiters
     rainbow-mode
+
+    ; Nyan nyan line indicator
     nyan-mode
-    
+
+    ; 
     s
     smex
     smart-mode-line
@@ -54,11 +81,6 @@
     go-mode
     haskell-mode
 
-    ; Clojure
-    ac-cider-compliment
-    cider
-    clojure-mode
-
     ; C++
     cpputils-cmake
     cc-mode
@@ -68,7 +90,7 @@
 
     ; Version control
     psvn
-)
+    )
   "A list of packages to install at launch.")
 
 (dolist (p my-pkgs)
