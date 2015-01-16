@@ -1,4 +1,3 @@
-(mapc 'require '(projectile ac-cider-compliment cider))
 ;; Initializes modes I use.
 
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
@@ -17,35 +16,6 @@
 
 (add-hook 'auto-complete-mode-hook
           'set-auto-complete-as-completion-at-point-function)
-
-;; Configure CIDER (Clojure REPL) and clojure-mode
-
-(defun cider-mode-setup ()
-  "Activates paredit, rainbow delimiters and ac-nrepl"
-  (ac-cider-compliment-setup)
-  (ac-flyspell-workaround)
-  (paredit-mode))
-
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes cider-mode))
-
-(add-hook 'cider-repl-mode-hook 'cider-mode-setup)
-(add-hook 'cider-interaction-mode-hook 'cider-mode-setup)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode))
-
-;; Paredit in clojure
-(add-hook 'clojure-mode-hook 'paredit-mode)
-
-;; eldoc in clojure
-(add-hook 'cider-interaction-mode-hook
-          'cider-turn-on-eldoc-mode)
-
-;; Don't annoy me
-(setq cider-hide-special-buffers t)
-(setq cider-popup-stacktraces nil)
-(setq cider-repl-pop-to-buffer-on-connect nil)
-(setq cider-repl-popup-stacktraces t)
 
 ;; Enable projectile for all things programming
 (add-hook 'prog-mode-hook 'projectile-mode)

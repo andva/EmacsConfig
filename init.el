@@ -29,19 +29,21 @@
     ; Line numbers
     nlinum
     
-    ;
+    ; modern list api
     dash
 
-    ;
+    ; Fuzzy matching with reasonable sorting
     flx-ido
 
-    ;
+    ; Auto complete
+    let-alist
     flycheck
 
-    ;
+    
+    ; Sets idle timer that highlights all occurances of word in buffer
     idle-highlight-mode
 
-    ;
+    ; allows you set up to use ido with almost anything that uses completion
     ido-ubiquitous
 
     ;

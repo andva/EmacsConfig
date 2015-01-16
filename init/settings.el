@@ -1,3 +1,4 @@
+
 (require 'uniquify)
 (require 'smart-mode-line)
 
@@ -6,6 +7,11 @@
 ; Hide those ugly tool bars
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
+
+; remove buffer centering
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
 
 (defun disable-scroll-bar ()
   (scroll-bar-mode 0))
@@ -116,14 +122,11 @@
 (load-theme 'gruber-darker t)
 
 (global-hl-line-mode -1)
-(when (member "Consolas" (font-family-list))
-  ((setq default-frame-alist '((font-backend . "xft")
+
+
+(setq default-frame-alist '((font-backend . "xft")
                             (font . "Consolas-10:weight=normal")))
-   (set-default-font "Consolas 10")
-   )
-  )
-
-
+(set-default-font "Consolas 10")
 
 ;; Don't make the nyan cat too long ... I have other stuff in the mode
 ;; bar as well!
