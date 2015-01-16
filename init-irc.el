@@ -19,8 +19,12 @@
 (setq rcirc-time-format "%Y-%m-%d %H:%M ")
 
 ;; Join these channels at startup.
-(setq rcirc-startup-channels-alist
-      '(("\\.freenode\\.net$" "#emacs" "##opengl")))
+(setq rcirc-server-alist
+      '(
+        ("irc.freenode.org"
+         :channels ("#emacs" "##opengl"))
+        )
+      )
 
 (setq rcirc-default-nick "bertilborst")
 
