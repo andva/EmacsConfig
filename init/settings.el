@@ -43,6 +43,10 @@
   (mouse-wheel-mode t)
   (blink-cursor-mode -1))
 
+;; nlinum mode
+
+(global-linum-mode t)
+
 ; Fix some defaults
 (setq visible-bell nil
       inhibit-startup-message t
@@ -253,5 +257,57 @@
 ;; Use CUPS
 (setq lpr-command "xpp")
 
+;; BitlBee facebook
+;; Omit mode
+(add-hook 'rcirc-mode-hook 'rcirc-omit-mode)
+
+(defvar rcirc-facebook-name-from nil)
+(defvar rcirc-facebook-name-to nil)
+
+(defadvice rcirc-handler-PRIVMSG (after rcirc-handler-facebook-1 activate)
+  "If &bitlbee mentions a user called u<number>,
+this advice sets up a listener to get his real name and rename the user."
+  ;; (when (string= sender "root")
+  ;;  (message "%s %s %s" sender (nth 0 args) (nth 1 args)))
+  (when (= 2 (length args))
+    (cond ((and (string= "root" sender)
+		(or (string= "&bitlbee" (nth 0 args))
+		    (string= rcirc-nick (nth 0 args)))
+		(string-match "\\(u[0-9]+\\)@chat.facebook.com"
+			      (nth 1 args)))
+	   (setq rcirc-facebook-name-from (match-string 1 (nth 1 args))))
+	  ((and (string= "root" sender)
+		(or (string= "&bitlbee" (nth 0 args))
+		    (string= rcirc-nick (nth 0 args)))
+		(string-match "^Name: \\(.*\\)"
+			      (nth 1 args)))
+	   (setq rcirc-facebook-name-to
+		 (mapconcat 'identity
+			    (split-string (match-string 1 (nth 1 args)))
+			    ""))
+	   (when rcirc-facebook-name-from
+	     (rcirc-send-message process sender
+				 (format "rename %s %s"
+					 rcirc-facebook-name-from
+					 rcirc-facebook-name-to))))
+	  ((and (string= "root" sender)
+		(string= rcirc-nick (nth 0 args))
+		(string-match "^Nick `\\(.*\\)' already exists$"
+			      (nth 1 args)))
+	   (setq to (concat (match-string 1 (nth 1 args)) "_"))
+	   (when rcirc-facebook-name-from
+	     (rcirc-send-message process sender
+				 (format "rename %s %s"
+					 rcirc-facebook-name-from
+					 to)))))))
+
+(defadvice rcirc-handler-JOIN (after rcirc-handler-facebook-2 activate)
+  "If a user named u<number> joins channel &bitlbee,
+call info on it. This will automatically rename him.
+See advice on `rcirc-handler-PRIVMSG'."
+  (when (and (string-match "^u[0-9]+$" sender)
+	     (string= (car args) "&bitlbee"))
+    (rcirc-send-message process "root"
+			(format "info %s" sender))))
 
 (provide 'settings)

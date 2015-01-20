@@ -1,5 +1,8 @@
 (require 'rcirc)
 
+;; First make sure we ignore any ~/.netrc files...
+(setq auth-sources '("~/.authinfo" "~/.authinfo.gpg"))
+
 ;; Don't print /away messages.
 ;; This does not require rcirc to be loaded already,
 ;; since rcirc doesn't define a 301 handler (yet).
@@ -16,19 +19,20 @@
 (set-face-foreground 'rcirc-my-nick "red" nil)
 
 ;; Include date in time stamp.
-(setq rcirc-time-format "%Y-%m-%d %H:%M ")
+(setq rcirc-time-format "%d|%H:%M ")
 
 ;; Join these channels at startup.
 (setq rcirc-server-alist
       '(
-        ("irc.freenode.org"
-         :channels ("#emacs" "##opengl"))
-        )
-      )
+        ("irc.freenode.org" nickserv "bertilborst" "")
+       )
+)
 
-(setq rcirc-default-nick "bertilborst")
+(setq rcirc-default-nick "andva")
 
 (setq rcirc-default-full-name "Curious Minds Want To Know")
 
 (setq rcirc-authinfo
-      '(("bitlbee" bitlbee bitlbeeusr bitlbeepsw)))
+      '(("freenode" nickserv "bertilborst" password "")
+        )
+)
