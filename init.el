@@ -86,7 +86,8 @@
     ; C++
     cpputils-cmake
     cc-mode
-
+    cmake-mode
+    
     ; Graphics
     glsl-mode
 
